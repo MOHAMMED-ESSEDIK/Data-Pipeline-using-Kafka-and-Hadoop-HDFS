@@ -55,52 +55,6 @@ python producer/twitter_producer.py
 python consumer/kafka_to_hdfs_consumer.py
 
 
-flowchart TB
-    subgraph Data_Source
-        A[Twitter API]
-    end
-
-    subgraph Streaming_Layer
-        B[Kafka Producer]
-        C[Kafka Broker]
-    end
-
-    subgraph Storage_Layer
-        D[Kafka Consumer]
-        E[HDFS]
-    end
-
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-
-## 🧩 System Architecture
-
-```mermaid
-flowchart LR
-    A[Twitter API] -->|Tweets| B[Kafka Producer<br/>Python + Tweepy]
-    B -->|Stream| C[Kafka Topic<br/>twitter_data]
-    C -->|Consume| D[Kafka Consumer<br/>Python]
-    D -->|JSON Files| E[Hadoop HDFS]
 
 
-
-
-```md
-### 🔍 Architecture Explanation
-
-1. **Twitter API**  
-   Provides real-time tweets based on a search query.
-
-2. **Kafka Producer**  
-   Collects tweets using Tweepy and publishes them to Kafka.
-
-3. **Kafka Topic (twitter_data)**  
-   Acts as a message buffer to decouple producers and consumers.
-
-4. **Kafka Consumer**  
-   Reads streaming tweets from Kafka in real time.
-
-5. **Hadoop HDFS**  
-   Stores tweets as JSON files for large-scale data analysis.
+    
