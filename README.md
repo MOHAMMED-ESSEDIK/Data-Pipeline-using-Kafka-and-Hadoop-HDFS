@@ -29,28 +29,28 @@ Twitter API
 
 ---
 ## Start Kafka Server
-
+---
 bin/windows/kafka-server-start.bat config/server.properties
 
----
-##Create Kafka Topic
 
+##Create Kafka Topic
+---
 bin/windows/kafka-topics.bat --create \
 --topic twitter_data \
 --bootstrap-server localhost:9092 \
 --partitions 1 \
 --replication-factor 1
 
----
+
 ##Create HDFS Directory
-
+---
 hdfs dfs -mkdir -p /twitter_data
----
+
 ##Run the Producer
-
+---
 python producer/twitter_producer.py
----
-##Run the Consumer
 
-python consumer/kafka_to_hdfs_consumer.py
+##Run the Consumer
 ---
+python consumer/kafka_to_hdfs_consumer.py
+
