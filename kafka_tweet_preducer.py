@@ -32,7 +32,7 @@ query = "music lang:en -is:retweet"
 try:
     response = client.search_recent_tweets(
         query=query,
-        max_results=10,
+        max_results=100,
         tweet_fields=["created_at", "lang", "public_metrics"],
         user_fields=["location", "public_metrics"],
         expansions=["author_id"]
@@ -62,3 +62,4 @@ except tweepy.TooManyRequests:
     time.sleep(900)
 
 producer.flush()
+
