@@ -55,6 +55,26 @@ python producer/twitter_producer.py
 python consumer/kafka_to_hdfs_consumer.py
 
 
+flowchart TB
+    subgraph Data_Source
+        A[Twitter API]
+    end
+
+    subgraph Streaming_Layer
+        B[Kafka Producer]
+        C[Kafka Broker]
+    end
+
+    subgraph Storage_Layer
+        D[Kafka Consumer]
+        E[HDFS]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+
 ## 🧩 System Architecture
 
 ```mermaid
