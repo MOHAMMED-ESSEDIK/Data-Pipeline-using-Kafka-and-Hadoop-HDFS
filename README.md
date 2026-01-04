@@ -3,14 +3,14 @@ Real-Time Twitter Data Pipeline using Kafka and Hadoop HDFS
 
 #  Real-Time Twitter Data Pipeline with Kafka & Hadoop HDFS
 
-##  Project Overview
+#  Project Overview
 This project demonstrates a **real-time Big Data pipeline** that collects tweets from the Twitter API, streams them using **Apache Kafka**, and stores them in **Hadoop HDFS** for large-scale data processing.
 
 It simulates a real-world **Data Engineering / Big Data architecture**.
 
 ---
 
-##  Architecture
+#  Architecture
 Twitter API  
 ➡️ Kafka Producer  
 ➡️ Kafka Topic (`twitter_data`)  
@@ -19,7 +19,7 @@ Twitter API
 
 ---
 
-##  Technologies Used
+#  Technologies Used
 - Python
 - Twitter API (Tweepy)
 - Apache Kafka
@@ -28,12 +28,12 @@ Twitter API
 - JSON
 
 ---
-## Start Kafka Server
+# Start Kafka Server
 ---
 bin/windows/kafka-server-start.bat config/server.properties
 
 
-##Create Kafka Topic
+#Create Kafka Topic
 ---
 bin/windows/kafka-topics.bat --create \
 --topic twitter_data \
@@ -42,15 +42,15 @@ bin/windows/kafka-topics.bat --create \
 --replication-factor 1
 
 
-##Create HDFS Directory
+#Create HDFS Directory
 ---
 hdfs dfs -mkdir -p /twitter_data
 
-##Run the Producer
+#Run the Producer
 ---
 python producer/twitter_producer.py
 
-##Run the Consumer
+#Run the Consumer
 ---
 python consumer/kafka_to_hdfs_consumer.py
 
