@@ -13,13 +13,19 @@ consumer = KafkaConsumer(
     value_deserializer=lambda x: json.loads(x.decode("utf-8"))
 )
 
-hdfs_client = InsecureClient("http://localhost:9870", user="hadoop")
+hdfs_client = InsecureClient(
+    "http://192.168.1.106:50070",
+    user="hadoop"
+)
+
+
 hdfs_dir = "/twitter_data/"
 
 BATCH_SIZE = 50
 buffer = []
 
-print("Kafka → HDFS consumer started...")
+print("Kafka -> HDFS consumer started...")
+
 
 for message in consumer:
     buffer.append(message.value)
