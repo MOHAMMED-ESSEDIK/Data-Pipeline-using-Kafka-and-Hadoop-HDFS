@@ -32,7 +32,7 @@ query = "music lang:en -is:retweet"
 try:
     response = client.search_recent_tweets(
         query=query,
-        max_results=100,
+        max_results=50,
         tweet_fields=["created_at", "lang", "public_metrics"],
         user_fields=["location", "public_metrics"],
         expansions=["author_id"]
